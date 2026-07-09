@@ -1,0 +1,65 @@
+# Setup
+
+## Prerequisites
+
+- Bun `1.3.14` or newer.
+
+## Install
+
+```sh
+bun install
+```
+
+## Development
+
+```sh
+bun run dev
+```
+
+The Vite dev server runs on `http://localhost:5173`.
+
+## Validation
+
+```sh
+bun run typecheck
+bun run build
+bun run check
+bun audit
+```
+
+`bun run check` runs the typecheck and production build.
+
+## Preview
+
+```sh
+bun run build
+bun run preview
+```
+
+## GitHub Pages Deployment
+
+GitHub Pages deploys through `.github/workflows/pages.yml`.
+
+The workflow runs on pushes to `main` and on manual `workflow_dispatch`, installs dependencies with Bun, typechecks the app, builds `dist/`, uploads the Pages artifact, and deploys it to the `github-pages` environment.
+
+The Pages build sets:
+
+```sh
+BASE_PATH=/iso-grid-thing/
+```
+
+Vite reads `BASE_PATH` from `vite.config.ts` so local development keeps `/` while the deployed project site loads assets under `https://<owner>.github.io/iso-grid-thing/`.
+
+Before the first run, open the repository on GitHub and set **Settings -> Pages -> Build and deployment -> Source** to **GitHub Actions**. If the repository name changes or a custom domain is added, update `BASE_PATH` in `.github/workflows/pages.yml` accordingly.
+
+## Environment
+
+No environment variables are required. This app is a client-only browser tool.
+
+## Tooling
+
+- Bun for package management and script execution.
+- Vite for dev server, build, and preview.
+- React 19 and TypeScript for the application.
+- Tailwind CSS through the Vite plugin.
+- GSAP as a local dependency for SVG/camera animation.

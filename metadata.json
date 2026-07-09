@@ -1,0 +1,6 @@
+{
+  "name": "Iso Grid Thing",
+  "description": "An interactive browser tool for custom isometric grids, projected media assets, PNG export, and JSON workspace save/load.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
