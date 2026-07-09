@@ -27,7 +27,7 @@ bun run check
 bun audit
 ```
 
-`bun run check` runs the typecheck and production build.
+`bun run check` runs the typecheck, Vitest suite, and production build.
 
 ## Preview
 
@@ -40,7 +40,7 @@ bun run preview
 
 GitHub Pages deploys through `.github/workflows/pages.yml`.
 
-The workflow runs on pushes to `main` and on manual `workflow_dispatch`, installs dependencies with Bun, typechecks the app, builds `dist/`, uploads the Pages artifact, and deploys it to the `github-pages` environment.
+The workflow runs on pushes to `main` and on manual `workflow_dispatch`, installs dependencies with Bun, runs `bun run check`, uploads the generated `dist/` Pages artifact, and deploys it to the `github-pages` environment.
 
 The Pages build sets:
 
@@ -51,6 +51,8 @@ BASE_PATH=/iso-grid-thing/
 Vite reads `BASE_PATH` from `vite.config.ts` so local development keeps `/` while the deployed project site loads assets under `https://<owner>.github.io/iso-grid-thing/`.
 
 Before the first run, open the repository on GitHub and set **Settings -> Pages -> Build and deployment -> Source** to **GitHub Actions**. If the repository name changes or a custom domain is added, update `BASE_PATH` in `.github/workflows/pages.yml` accordingly.
+
+The workflow intentionally skips `actions/configure-pages` because this Vite app does not need Pages-generated metadata. `actions/upload-pages-artifact` packages `dist/`, and `actions/deploy-pages` publishes that artifact once Pages is enabled for GitHub Actions.
 
 ## Environment
 
