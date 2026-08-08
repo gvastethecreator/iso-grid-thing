@@ -2,20 +2,20 @@
 
 ## Project
 
-This is a Bun + Vite + React browser app for building isometric grids and arranging media assets. Preserve the current product workflow and visual language unless the user explicitly asks for a redesign.
+This is a pnpm + Vite + React browser app for building isometric grids and arranging media assets. Preserve the current product workflow and visual language unless the user explicitly asks for a redesign.
 
 ## Commands
 
-- Install: `bun install`
-- Dev server: `bun run dev`
-- Typecheck: `bun run typecheck`
-- Build: `bun run build`
-- Full local check: `bun run check`
-- Audit: `bun audit`
+- Install: `pnpm install`
+- Dev server: `pnpm run dev`
+- Typecheck: `pnpm run typecheck`
+- Build: `pnpm run build`
+- Full local check: `pnpm run check`
+- Audit: `pnpm audit`
 
 ## Guardrails
 
-- Use Bun as the package manager. Do not add npm, Yarn, or pnpm lockfiles.
+- Use pnpm as the package manager. Do not add npm, Yarn, or Bun lockfiles.
 - Keep the app client-only; do not add backend storage or remote services without approval.
 - Treat imported images and videos as local browser-session assets.
 - Keep docs synchronized with package scripts and Vite config.

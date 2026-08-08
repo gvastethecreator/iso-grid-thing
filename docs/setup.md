@@ -2,18 +2,18 @@
 
 ## Prerequisites
 
-- Bun `1.3.14` or newer.
+- Node.js 24 and pnpm `11.20` or newer.
 
 ## Install
 
 ```sh
-bun install
+pnpm install
 ```
 
 ## Development
 
 ```sh
-bun run dev
+pnpm run dev
 ```
 
 The Vite dev server runs on `http://localhost:5173`.
@@ -21,26 +21,26 @@ The Vite dev server runs on `http://localhost:5173`.
 ## Validation
 
 ```sh
-bun run typecheck
-bun run build
-bun run check
-bun audit
+pnpm run typecheck
+pnpm run build
+pnpm run check
+pnpm audit
 ```
 
-`bun run check` runs the typecheck, Vitest suite, and production build.
+`pnpm run check` runs the typecheck, Vitest suite, and production build.
 
 ## Preview
 
 ```sh
-bun run build
-bun run preview
+pnpm run build
+pnpm run preview
 ```
 
 ## GitHub Pages Deployment
 
 GitHub Pages deploys through `.github/workflows/pages.yml`.
 
-The workflow runs on pushes to `main` and on manual `workflow_dispatch`, installs dependencies with Bun, runs `bun run check`, uploads the generated `dist/` Pages artifact, and deploys it to the `github-pages` environment.
+The workflow runs on pushes to `main` and on manual `workflow_dispatch`, installs dependencies with pnpm, runs `pnpm run check`, uploads the generated `dist/` Pages artifact, and deploys it to the `github-pages` environment.
 
 The Pages build sets:
 
@@ -60,7 +60,7 @@ No environment variables are required. This app is a client-only browser tool.
 
 ## Tooling
 
-- Bun for package management and script execution.
+- pnpm for package management and script execution.
 - Vite for dev server, build, and preview.
 - React 19 and TypeScript for the application.
 - Tailwind CSS through the Vite plugin.

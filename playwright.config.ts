@@ -10,7 +10,7 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'bun run dev -- --host localhost --port 5202 --strictPort',
+    command: 'pnpm run dev -- --host localhost --port 5202 --strictPort',
     url: 'http://localhost:5202',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

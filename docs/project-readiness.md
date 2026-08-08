@@ -1,5 +1,12 @@
 # Project Readiness
 
+## 2026-08-08 pnpm migration
+
+- The active package manager is pnpm 11.20.0, with `pnpm-lock.yaml` as the reproducible lockfile.
+- Package scripts, Playwright launchers, VS Code tasks, and GitHub Actions now use pnpm.
+- `pnpm install --frozen-lockfile --ignore-scripts` and `pnpm run check` passed after the migration.
+- The Bun references below describe the earlier readiness pass and are retained as historical evidence.
+
 ## Baseline
 
 - Repo initialized on `main`.

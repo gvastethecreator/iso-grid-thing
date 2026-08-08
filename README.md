@@ -6,11 +6,11 @@ Iso Grid Thing is a client-only React app for designers, artists, and developers
 
 ## Quick Start
 
-Install [Bun](https://bun.com/docs/pm/cli/install), then run:
+Install [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/installation), then run:
 
 ```sh
-bun install
-bun run dev
+pnpm install
+pnpm run dev
 ```
 
 Open `http://localhost:5173`.
@@ -41,7 +41,7 @@ Before the first deployment, set the repository Pages source to **GitHub Actions
 ## Status
 
 - Client-only app; no backend or server-side storage.
-- Bun is the supported package manager for this repo.
+- pnpm is the supported package manager for this repo.
 - No open-source license has been selected yet.
 
 ## License

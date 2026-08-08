@@ -2,6 +2,8 @@
 
 Date: 2026-07-09
 
+The active package-manager command is now `pnpm run build`. Bun references below record the original 2026-07-09 measurement.
+
 ## Tooling
 
 - Chrome DevTools MCP was not configured in this environment, so no DevTools trace was captured.

@@ -19,7 +19,7 @@ Iso Grid Thing is a browser-based canvas tool for creating isometric and frontal
 ## Current Constraints
 
 - Client-only app.
-- Bun package manager.
+- pnpm package manager.
 - Vite dev/build pipeline.
 - Tailwind CSS through the Vite plugin.
 - GSAP for SVG animation.
