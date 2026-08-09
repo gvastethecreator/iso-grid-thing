@@ -1,3 +1,3 @@
 # Architecture Decision Records
 
-No ADRs have been recorded yet. Add ADRs here when a durable architectural decision needs a stable reference.
+- `0001-portable-workspace-media.md`: embed imported media in exported JSON instead of persisting session-only object URLs.

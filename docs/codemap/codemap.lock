@@ -1,7 +1,7 @@
 {
-  "current_commit": "3e29ce81650c2c69eee069065ab67a74bf44339f",
+  "current_commit": "fa30896a0c35910a70c2fce10bbebf762a674f08",
   "working_tree_dirty": true,
-  "generated_at": "2026-08-08T10:30:41Z",
+  "generated_at": "2026-08-09T20:48:19Z",
   "scanned_scope": [
     "."
   ],
@@ -11,6 +11,7 @@
     ".hg",
     ".next",
     ".nuxt",
+    ".scratch",
     ".svn",
     ".turbo",
     ".venv",
@@ -32,37 +33,37 @@
       "id": ".",
       "path": ".",
       "file_count": 16,
-      "fingerprint": "4ddcde226738ac301ac9270253e5b96e635e8424e70feda415aec68ddf34437a"
+      "fingerprint": "588a24a1b5710fe0ea53a6fc05b6e6f2eb6a7ad44651fa7cf41b16f72aaa79f8"
     },
     {
       "id": ".github",
       "path": ".github",
       "file_count": 2,
-      "fingerprint": "d65989637b7f421f9161d48465db9e186720b2da72181ecf9648725ee4d6d4ef"
+      "fingerprint": "9f919c839af5183a577e223abed64b21cdac858245e588ba79ef1ce68e902559"
     },
     {
       "id": "components",
       "path": "components",
       "file_count": 9,
-      "fingerprint": "0581de25a87eaf5a10c1d2e66f21799665538f11389d0f37791d95b980e92abb"
+      "fingerprint": "d99fdec8000d3422c66a9fdc5cea62ef5b1783093bda06fd3b957878d831b8ae"
     },
     {
       "id": "docs",
       "path": "docs",
       "file_count": 12,
-      "fingerprint": "5d4620d82df06b6f53dee62f867ecefa1713fefbc62678be0db816cbb6d27aa6"
+      "fingerprint": "c8da0da99bf53b1827d51c54e6ee7489e284c3313621a6c837863e6900c2ffff"
     },
     {
       "id": "hooks",
       "path": "hooks",
       "file_count": 1,
-      "fingerprint": "887a43263a445ef521ac22f1be9e425ba749d5283dd3483e82ce1252e13d0a1b"
+      "fingerprint": "de7fc34388f9ee7000da709200ecc91648606e3d401f16cb125e41b0f8a9398d"
     },
     {
       "id": "lib",
       "path": "lib",
       "file_count": 10,
-      "fingerprint": "9183bb170ae6a9f8f35da2065b5d53a44eec13357dc38c14879ffd4e9fa1ffb5"
+      "fingerprint": "86bdd7afea0966fd70fd59265bc1d2f9f7efb1384921bdffc1b33c8ca5d568a2"
     },
     {
       "id": "public",
@@ -74,7 +75,7 @@
       "id": "tests",
       "path": "tests",
       "file_count": 1,
-      "fingerprint": "b34c41427c5b5e68dbd8e6811b8a02ead18836e65ddb7696d67a0362600f53f9"
+      "fingerprint": "613da84b74d7720b0d2c2f9aa00a8495a66f22a242f4a7bf098b293eb56a9abd"
     }
   ]
 }

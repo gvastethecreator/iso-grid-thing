@@ -1,7 +1,6 @@
-
 export interface PlayableAsset {
   id: string;
-  type: 'image' | 'video';
+  type: "image" | "video";
   src: string;
   width: number; // in grid cells
   depth: number; // in grid cells
@@ -9,7 +8,7 @@ export interface PlayableAsset {
   y: number;
   aspectRatio: number;
   scale: number;
-  objectFit?: 'cover' | 'contain';
+  objectFit?: "cover" | "contain";
   rotation?: number;
   borderRadius?: number;
 }
@@ -18,12 +17,12 @@ export interface PlayableAsset {
  * Configuration for the extended background grid.
  */
 export interface BackgroundGrid {
-    /** Whether the background grid is visible. */
-    enabled: boolean;
-    /** Opacity of the background grid (0 to 1). */
-    opacity: number;
-    /** How many cells the background grid extends beyond the main grid. */
-    extension: number;
+  /** Whether the background grid is visible. */
+  enabled: boolean;
+  /** Opacity of the background grid (0 to 1). */
+  opacity: number;
+  /** How many cells the background grid extends beyond the main grid. */
+  extension: number;
 }
 
 /**
@@ -31,7 +30,7 @@ export interface BackgroundGrid {
  */
 export interface GridParams {
   /** View mode: classic isometric or 2d frontal */
-  viewMode: 'iso' | '2d';
+  viewMode: "iso" | "2d";
   /** Grid width in number of cells. */
   width: number;
   /** Grid depth in number of cells. */
@@ -45,7 +44,7 @@ export interface GridParams {
   /** Grid line thickness in pixels. */
   lineThickness: number;
   /** Grid line style */
-  lineStyle?: 'solid' | 'dashed' | 'dotted' | 'pattern';
+  lineStyle?: "solid" | "dashed" | "dotted" | "pattern";
   /** Padding in pixels between grid and container edges. */
   padding: number;
   /** Grid line color. */

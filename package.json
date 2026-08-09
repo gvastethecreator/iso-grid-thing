@@ -1,38 +1,49 @@
 {
   "name": "iso-grid-thing",
+  "version": "0.0.0",
   "private": true,
   "description": "A browser-based isometric grid and media layout tool.",
-  "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@11.20.0",
-  "engines": {
-    "pnpm": ">=11.20.0"
-  },
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "typecheck": "tsc --noEmit",
+    "lint": "oxlint . --react-plugin --jsx-a11y-plugin --react-perf-plugin --vitest-plugin -A jsx-a11y/media-has-caption --deny-warnings",
+    "lint:fix": "oxlint . --react-plugin --jsx-a11y-plugin --react-perf-plugin --vitest-plugin -A jsx-a11y/media-has-caption --fix",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "pnpm run typecheck && pnpm run test && pnpm run build",
-    "audit": "pnpm audit"
+    "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test",
+    "ci": "pnpm run check && pnpm run build && pnpm run test:e2e",
+    "deps:outdated": "pnpm outdated",
+    "deps:audit": "pnpm audit"
   },
   "dependencies": {
     "gsap": "^3.15.0",
-    "lucide-react": "^0.417.0",
+    "lucide-react": "^1.31.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
     "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^22.20.1",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.0.5",
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0",
     "tailwindcss": "^4.3.3",
-    "typescript": "~5.8.3",
-    "vite": "^8.2.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.1",
     "vitest": "^4.1.10"
-  }
+  },
+  "engines": {
+    "node": ">=24.0.0",
+    "pnpm": ">=11.21.0"
+  },
+  "packageManager": "pnpm@11.21.0"
 }

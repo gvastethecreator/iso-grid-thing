@@ -1,4 +1,4 @@
-import type { PlayableAsset } from '../types';
+import type { PlayableAsset } from "../types";
 
 export interface Point {
   x: number;
@@ -9,7 +9,7 @@ export interface GridProjectionInput {
   width: number;
   depth: number;
   padding: number;
-  viewMode: 'iso' | '2d';
+  viewMode: "iso" | "2d";
   gridGap: number;
   assets: readonly PlayableAsset[];
   containerSize: { width: number; height: number };
@@ -40,7 +40,7 @@ const PIXEL_SCALE = 1000;
 
 export function createGridProjection(input: GridProjectionInput): GridProjection {
   const { width, depth, padding, viewMode, containerSize, camera } = input;
-  const is2D = viewMode === '2d';
+  const is2D = viewMode === "2d";
   const baseTileHeight = BASE_TILE_WIDTH * (is2D ? 1 : camera.proj / 100);
 
   const toIsoUnscaled = createToIso({
@@ -67,7 +67,12 @@ export function createGridProjection(input: GridProjectionInput): GridProjection
   const gridHeightUnscaled = Math.max(...cornersUnscaled.map((point) => point.y)) - minYUnscaled;
 
   let scale = 1;
-  if (gridWidthUnscaled > 0 && gridHeightUnscaled > 0 && containerSize.width > 0 && containerSize.height > 0) {
+  if (
+    gridWidthUnscaled > 0 &&
+    gridHeightUnscaled > 0 &&
+    containerSize.width > 0 &&
+    containerSize.height > 0
+  ) {
     scale = Math.min(
       (containerSize.width - padding * 2) / gridWidthUnscaled,
       (containerSize.height - padding * 2) / gridHeightUnscaled,
@@ -136,12 +141,7 @@ export function createGridProjection(input: GridProjectionInput): GridProjection
     const xEnd = xStart + cellWidth + (cellWidth - 1) * gap;
     const yEnd = yStart + cellDepth + (cellDepth - 1) * gap;
 
-    return [
-      toIso(xStart, yStart),
-      toIso(xEnd, yStart),
-      toIso(xEnd, yEnd),
-      toIso(xStart, yEnd),
-    ];
+    return [toIso(xStart, yStart), toIso(xEnd, yStart), toIso(xEnd, yEnd), toIso(xStart, yEnd)];
   };
 
   const getAssetMatrix = (): AssetProjectionMatrix => {

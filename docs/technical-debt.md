@@ -1,19 +1,10 @@
 # Technical Debt
 
-## High
+## Release decisions
 
-- No license selected.
-  - Impact: publishing and contribution terms are ambiguous.
-  - Next step: choose and add a license before public release.
+- Choose a license before public distribution. No license was added because this is an owner decision.
+- Complete a human visual review of the production build on the supported desktop and mobile sizes.
 
-## Medium
+## Measurement
 
-- Drag and import/export workflows do not yet have browser-level coverage.
-  - Impact: unit tests cover pure projection and file parsing, but full DOM interaction regressions can still slip through.
-  - Next step: add Playwright coverage for asset drag, JSON load, and PNG export once stable fixtures exist.
-
-## Low
-
-- Large-grid interaction profiling is still manual.
-  - Impact: 50x50 and 128x128 behavior can regress without a repeatable performance trace.
-  - Next step: add a profiling script or trace checklist for large-grid scenarios.
+- Capture a repeatable DevTools performance trace with many image and video assets under sustained dragging. The automated suite already covers the maximum 128 x 128 grid, but it does not replace a trace of media-heavy interaction.

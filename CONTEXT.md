@@ -11,7 +11,8 @@ Iso Grid Thing is a browser-based canvas tool for creating isometric and frontal
 - Asset: an imported image or video placed on the grid.
 - Timeline: the bottom asset strip used to add and select assets.
 - Asset placement: the process that chooses a free grid position and cell footprint for an asset.
-- Asset URL: a browser object URL created for an imported image or video during the current session.
+- Asset URL: a browser object URL used during editing or an embedded data URL restored from a portable workspace.
+- Portable workspace: exported JSON that embeds imported media as data URLs so it can be reopened without the original browser session.
 - Projection: the mapping from grid coordinates into SVG screen coordinates.
 - Ephemeral update: a transient state update used during continuous interactions without adding every intermediate value to undo history.
 - Snapshot: a saved history state captured before a sequence of ephemeral updates.
@@ -23,3 +24,4 @@ Iso Grid Thing is a browser-based canvas tool for creating isometric and frontal
 - Vite dev/build pipeline.
 - Tailwind CSS through the Vite plugin.
 - GSAP for SVG animation.
+- Portable JSON is the persistence boundary; there is no server-side storage.

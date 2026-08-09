@@ -1,52 +1,30 @@
-# Performance Notes
+# Performance
 
-Date: 2026-07-09
+Date: 2026-08-09
 
-The active package-manager command is now `pnpm run build`. Bun references below record the original 2026-07-09 measurement.
+## Production output
 
-## Tooling
+Vite 8.2.1 builds the application into:
 
-- Chrome DevTools MCP was not configured in this environment, so no DevTools trace was captured.
-- Browser smoke and load sampling used Playwright against the local Vite app.
-- Production bundle evidence comes from `bun run build`.
+- JavaScript: 324.46 kB, 106.10 kB gzip.
+- CSS: 46.32 kB, 8.08 kB gzip.
+- HTML: 0.81 kB, 0.50 kB gzip.
 
-## Before
+The prior architecture pass reduced the main JavaScript bundle from 460.06 kB to about 316 kB by replacing `react-color`. This pass keeps that reduction while adding responsive navigation, portable media persistence, and inline feedback.
 
-- App title: `Iso Master`.
-- Local dev smoke at `http://localhost:5202` rendered the canvas with no console errors.
-- Baseline production build:
-  - main JS: `460.06 kB`, gzip `142.58 kB`
-  - CSS: `41.25 kB`, gzip `7.31 kB`
+## Interaction work
 
-## Changes
+- Asset drag uses one stable set of global pointer listeners instead of re-registering listeners whenever React props change.
+- Pointer movement is batched with `requestAnimationFrame`, and direct zero-duration movement uses `gsap.set`.
+- Asset DOM queries are scoped to the editor SVG instead of the whole document.
+- Asset depth sorting is memoized until the asset list changes.
+- Mouse-only drag and pan handlers were replaced with pointer handlers, covering touch and pen input too.
+- Camera tweens are killed when their effect is replaced or unmounted.
 
-- Replaced `react-color` with a custom minimal color picker using hex input, swatches, and RGB sliders.
-- Extracted asset placement into `lib/assetLayout.ts`, removing duplicate occupancy-grid implementations from asset add and auto-layout flows.
-- Extracted projection math into `lib/projection.ts` and path generation into `lib/gridPaths.ts`, keeping per-render SVG path construction behind pure helpers.
-- Extracted workspace JSON and SVG/PNG export handling into focused file modules.
-- Added `lib/assetUrls.ts` and wired object URL revocation for asset removal, reset, JSON load replacement, failed media metadata loads, and app unmount.
+## Browser coverage
 
-## After
+Playwright exercises the maximum supported 128 x 128 grid, verifies that the SVG stays visible, and fails on page errors. It also covers mobile navigation, portable JSON export, and PNG export.
 
-- Production build:
-  - main JS after custom picker: `316.09 kB`, gzip `103.56 kB`
-  - main JS after architecture extraction: `316.33 kB`, gzip `103.71 kB`
-  - CSS after architecture extraction: `41.62 kB`, gzip `7.37 kB`
+## Remaining measurement
 
-The prior lazy-loaded color-picker pass moved `react-color` to a separate `145.28 kB` chunk. The custom picker removes that chunk and the dependency entirely.
-
-## Browser Smoke
-
-- URL: `http://localhost:5202`
-- App title rendered as `ISO GRID THING`.
-- Custom line-color picker opened successfully.
-- Swatch click changed the line color input to `#ef4444`.
-- RGB slider count: `3`.
-- `react-color` resource loaded: `false`.
-- Console/page errors: none.
-- Screenshot: `.local/screenshots/custom-color-picker-1440x900.png`
-
-## Remaining Opportunities
-
-- Add interaction profiling for 50x50 and 128x128 grids after projection is testable.
-- Add browser coverage for asset drag and workspace import/export.
+A recorded DevTools trace under sustained asset-heavy dragging remains useful before a public release. It is a measurement task, not a known functional blocker.

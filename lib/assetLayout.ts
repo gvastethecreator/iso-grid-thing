@@ -1,4 +1,4 @@
-import type { PlayableAsset } from '../types';
+import type { PlayableAsset } from "../types";
 
 export interface GridCellSize {
   width: number;
@@ -11,16 +11,10 @@ export interface GridCellPosition {
 }
 
 export function getAssetGridSize(aspectRatio: number, scale = 1, rotation = 0): GridCellSize {
-  const effectiveAspectRatio = rotation === 90 || rotation === 270
-    ? 1 / aspectRatio
-    : aspectRatio;
+  const effectiveAspectRatio = rotation === 90 || rotation === 270 ? 1 / aspectRatio : aspectRatio;
 
-  const baseWidth = effectiveAspectRatio > 1
-    ? Math.round(effectiveAspectRatio)
-    : 1;
-  const baseDepth = effectiveAspectRatio > 1
-    ? 1
-    : Math.round(1 / effectiveAspectRatio);
+  const baseWidth = effectiveAspectRatio > 1 ? Math.round(effectiveAspectRatio) : 1;
+  const baseDepth = effectiveAspectRatio > 1 ? 1 : Math.round(1 / effectiveAspectRatio);
 
   return {
     width: Math.max(1, Math.round(Math.max(1, baseWidth) * scale)),
@@ -71,7 +65,9 @@ export function layoutAssetsByArea(gridWidth: number, assets: readonly PlayableA
   const placedAssets: PlayableAsset[] = [];
 
   return [...assets]
-    .sort((a, b) => Math.ceil(b.width) * Math.ceil(b.depth) - Math.ceil(a.width) * Math.ceil(a.depth))
+    .sort(
+      (a, b) => Math.ceil(b.width) * Math.ceil(b.depth) - Math.ceil(a.width) * Math.ceil(a.depth),
+    )
     .map((asset) => {
       const width = Math.ceil(asset.width);
       const depth = Math.ceil(asset.depth);

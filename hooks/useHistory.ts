@@ -1,5 +1,4 @@
-
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 interface HistoryState<T> {
   past: T[];
@@ -54,9 +53,9 @@ export function useHistory<T>(initialPresent: T) {
   const set = useCallback((newPresent: T | ((curr: T) => T)) => {
     setState((currentState) => {
       const value = newPresent instanceof Function ? newPresent(currentState.present) : newPresent;
-      
+
       if (JSON.stringify(value) === JSON.stringify(currentState.present)) {
-          return currentState;
+        return currentState;
       }
 
       return {
@@ -73,13 +72,13 @@ export function useHistory<T>(initialPresent: T) {
    * IMPORTANT: Call saveSnapshot() BEFORE starting a sequence of ephemeral updates.
    */
   const setEphemeral = useCallback((newPresent: T | ((curr: T) => T)) => {
-      setState(currentState => {
-          const value = newPresent instanceof Function ? newPresent(currentState.present) : newPresent;
-          return {
-            ...currentState,
-            present: value
-          };
-      });
+    setState((currentState) => {
+      const value = newPresent instanceof Function ? newPresent(currentState.present) : newPresent;
+      return {
+        ...currentState,
+        present: value,
+      };
+    });
   }, []);
 
   /**
@@ -88,17 +87,31 @@ export function useHistory<T>(initialPresent: T) {
    */
   const saveSnapshot = useCallback(() => {
     setState((currentState) => {
-        // Avoid duplicating history if logic triggers multiple saves without changes
-        if (currentState.past.length > 0 && JSON.stringify(currentState.past[currentState.past.length - 1]) === JSON.stringify(currentState.present)) {
-            return currentState;
-        }
-        return {
-            past: [...currentState.past, currentState.present],
-            present: currentState.present,
-            future: []
-        };
+      // Avoid duplicating history if logic triggers multiple saves without changes
+      if (
+        currentState.past.length > 0 &&
+        JSON.stringify(currentState.past[currentState.past.length - 1]) ===
+          JSON.stringify(currentState.present)
+      ) {
+        return currentState;
+      }
+      return {
+        past: [...currentState.past, currentState.present],
+        present: currentState.present,
+        future: [],
+      };
     });
   }, []);
 
-  return { state: state.present, set, setEphemeral, saveSnapshot, undo, redo, canUndo, canRedo, historyState: state };
+  return {
+    state: state.present,
+    set,
+    setEphemeral,
+    saveSnapshot,
+    undo,
+    redo,
+    canUndo,
+    canRedo,
+    historyState: state,
+  };
 }

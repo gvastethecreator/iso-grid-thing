@@ -1,49 +1,54 @@
 # Iso Grid Thing
 
-A browser-based tool for building isometric grids and placing image or video assets onto them.
+A client-only React tool for building isometric or frontal grids, placing local image and video assets, and exporting the result.
 
-Iso Grid Thing is a client-only React app for designers, artists, and developers who need quick isometric layout guides without opening a heavy vector editor. It runs locally in the browser, supports interactive grid controls, and exports either the rendered canvas as PNG or the project state as JSON.
+## Quick start
 
-## Quick Start
-
-Install [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/installation), then run:
+Install Node.js 24+ and pnpm 11.21+, then run:
 
 ```sh
 pnpm install
 pnpm run dev
 ```
 
-Open `http://localhost:5173`.
+Open `http://127.0.0.1:5173`.
 
 ## Features
 
-- Adjustable isometric and frontal 2D grid modes.
-- Width, depth, gap, projection angle, rotation, padding, color, opacity, and line-style controls.
-- Image and video assets with timeline selection, drag placement, scaling, fit mode, rotation, and border-radius controls.
-- Undo/redo for committed workspace changes.
-- PNG export plus JSON save/load for project state.
+- Isometric and frontal 2D grid modes with editable dimensions, gaps, projection, rotation, padding, colors, opacity, and line styles.
+- Image and video placement with drag, scale, fit, rotation, radius, timeline selection, and automatic layout.
+- Pan, zoom, undo, redo, keyboard shortcuts, and responsive side panels for desktop and mobile.
+- PNG export and portable JSON save/load. Imported media is embedded in the JSON file, so saved workspaces can be reopened later.
+- Strict TypeScript, Vitest coverage, Playwright browser checks, Oxlint, and Oxfmt quality gates.
+
+## Commands
+
+```sh
+pnpm run dev           # local development
+pnpm run check         # format, lint, types, and unit tests
+pnpm run ci            # full check, production build, and Chromium tests
+pnpm run deps:outdated # available dependency updates
+pnpm run deps:audit    # dependency security audit
+```
+
+VS Code exposes the same common commands in `.vscode/tasks.json` with short emoji labels.
 
 ## Documentation
 
-- Setup and commands: `docs/setup.md`
-- GitHub Pages deployment: `docs/setup.md#github-pages-deployment`
-- Architecture: `docs/architecture.md`
-- Product requirements: `docs/product-requirements.md`
-- Readiness record: `docs/project-readiness.md`
-- Deferred debt: `docs/technical-debt.md`
-
-## GitHub Pages
-
-This app can be deployed as a static GitHub Pages project site with GitHub Actions. The deploy workflow builds the Vite app into `dist/` with `BASE_PATH=/iso-grid-thing/`, then publishes that build artifact to Pages.
-
-Before the first deployment, set the repository Pages source to **GitHub Actions** in GitHub repository settings. If the repository is renamed, update `BASE_PATH` in `.github/workflows/pages.yml` to match the new project path.
+- [Setup and deployment](docs/setup.md)
+- [Architecture](docs/architecture.md)
+- [Dependency upgrade notes](docs/dependencies.md)
+- [Performance](docs/performance.md)
+- [Product requirements](docs/product-requirements.md)
+- [Project readiness](docs/project-readiness.md)
+- [Technical debt](docs/technical-debt.md)
 
 ## Status
 
-- Client-only app; no backend or server-side storage.
-- pnpm is the supported package manager for this repo.
-- No open-source license has been selected yet.
+- pnpm is the only supported package manager. The application does not depend on the Bun runtime.
+- The app is client-only and does not send imported media to a server.
+- No open-source license has been selected. All rights remain reserved until the owner chooses one.
 
-## License
+## Deployment
 
-MIT
+The GitHub Pages workflow builds with `BASE_PATH=/iso-grid-thing/`. Set the repository Pages source to **GitHub Actions** before the first deployment. If the repository name changes, update `BASE_PATH` in `.github/workflows/pages.yml`.

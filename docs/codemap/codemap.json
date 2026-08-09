@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-08T10:30:41Z",
-  "generated_from_commit": "3e29ce81650c2c69eee069065ab67a74bf44339f",
+  "generated_at": "2026-08-09T20:48:19Z",
+  "generated_from_commit": "fa30896a0c35910a70c2fce10bbebf762a674f08",
   "scope": [
     "."
   ],
@@ -155,7 +155,7 @@
       "type": "module",
       "boundary": "Playwright.Config",
       "entrypoints": [
-        "playwright.config.ts:import { defineConfig, devices } from '@playwright/test';"
+        "playwright.config.ts:import { defineConfig, devices } from \"@playwright/test\";"
       ],
       "tests": [],
       "constraints": [
@@ -166,7 +166,7 @@
         "locations": [
           {
             "path": "playwright.config.ts",
-            "symbol": "import { defineConfig, devices } from '@playwright/test';"
+            "symbol": "import { defineConfig, devices } from \"@playwright/test\";"
           }
         ]
       }
@@ -250,7 +250,7 @@
       "type": "module",
       "boundary": "Vitest.Config",
       "entrypoints": [
-        "vitest.config.ts:import { defineConfig } from 'vitest/config';"
+        "vitest.config.ts:import { defineConfig } from \"vitest/config\";"
       ],
       "tests": [],
       "constraints": [
@@ -261,7 +261,7 @@
         "locations": [
           {
             "path": "vitest.config.ts",
-            "symbol": "import { defineConfig } from 'vitest/config';"
+            "symbol": "import { defineConfig } from \"vitest/config\";"
           }
         ]
       }
@@ -278,10 +278,6 @@
           {
             "path": "App.tsx",
             "symbol": "./components/IsometricGrid"
-          },
-          {
-            "path": "App.tsx",
-            "symbol": "./components/panels/FloatingPanel"
           },
           {
             "path": "App.tsx",

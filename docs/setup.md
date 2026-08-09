@@ -2,66 +2,46 @@
 
 ## Prerequisites
 
-- Node.js 24 and pnpm `11.20` or newer.
+- Node.js 24 or newer.
+- pnpm 11.21 or newer. The repository pins `pnpm@11.21.0` in `package.json`.
 
-## Install
+## Local development
 
 ```sh
 pnpm install
-```
-
-## Development
-
-```sh
 pnpm run dev
 ```
 
-The Vite dev server runs on `http://localhost:5173`.
+Open `http://127.0.0.1:5173`. No environment variables or backend services are required.
 
 ## Validation
 
 ```sh
+pnpm run format:check
+pnpm run lint
 pnpm run typecheck
+pnpm run test
 pnpm run build
-pnpm run check
-pnpm audit
+pnpm run test:e2e
+pnpm run deps:outdated
+pnpm run deps:audit
 ```
 
-`pnpm run check` runs the typecheck, Vitest suite, and production build.
+`pnpm run check` runs the non-mutating format, lint, type, and unit-test gates. `pnpm run ci` also builds the production app and runs the Playwright Chromium suite.
 
-## Preview
+## Production preview
 
 ```sh
 pnpm run build
 pnpm run preview
 ```
 
-## GitHub Pages Deployment
+## GitHub Pages
 
-GitHub Pages deploys through `.github/workflows/pages.yml`.
+`.github/workflows/pages.yml` validates and builds the app, uploads `dist/`, and deploys it to GitHub Pages. The build uses `BASE_PATH=/iso-grid-thing/` so Vite emits project-site URLs.
 
-The workflow runs on pushes to `main` and on manual `workflow_dispatch`, installs dependencies with pnpm, runs `pnpm run check`, uploads the generated `dist/` Pages artifact, and deploys it to the `github-pages` environment.
+Before the first deployment, set **Settings -> Pages -> Build and deployment -> Source** to **GitHub Actions**. If the repository name or hosting path changes, update `BASE_PATH` in the workflow.
 
-The Pages build sets:
+## Package-manager policy
 
-```sh
-BASE_PATH=/iso-grid-thing/
-```
-
-Vite reads `BASE_PATH` from `vite.config.ts` so local development keeps `/` while the deployed project site loads assets under `https://<owner>.github.io/iso-grid-thing/`.
-
-Before the first run, open the repository on GitHub and set **Settings -> Pages -> Build and deployment -> Source** to **GitHub Actions**. If the repository name changes or a custom domain is added, update `BASE_PATH` in `.github/workflows/pages.yml` accordingly.
-
-The workflow intentionally skips `actions/configure-pages` because this Vite app does not need Pages-generated metadata. `actions/upload-pages-artifact` packages `dist/`, and `actions/deploy-pages` publishes that artifact once Pages is enabled for GitHub Actions.
-
-## Environment
-
-No environment variables are required. This app is a client-only browser tool.
-
-## Tooling
-
-- pnpm for package management and script execution.
-- Vite for dev server, build, and preview.
-- React 19 and TypeScript for the application.
-- Tailwind CSS through the Vite plugin.
-- GSAP as a local dependency for SVG/camera animation.
+Use pnpm for installs and scripts. Keep `pnpm-lock.yaml` committed. Do not add Bun, npm, or Yarn lockfiles. Bun is not required by the application.

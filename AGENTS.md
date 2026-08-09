@@ -11,7 +11,7 @@ This is a pnpm + Vite + React browser app for building isometric grids and arran
 - Typecheck: `pnpm run typecheck`
 - Build: `pnpm run build`
 - Full local check: `pnpm run check`
-- Audit: `pnpm audit`
+- Audit: `pnpm run deps:audit`
 
 ## Guardrails
 
