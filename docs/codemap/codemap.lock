@@ -1,7 +1,7 @@
 {
-  "current_commit": "fa30896a0c35910a70c2fce10bbebf762a674f08",
+  "current_commit": "7d1f1b2d08cc5bc7672fd1210c8ccdf3b2fb1921",
   "working_tree_dirty": true,
-  "generated_at": "2026-08-09T20:48:19Z",
+  "generated_at": "2026-08-09T21:10:10Z",
   "scanned_scope": [
     "."
   ],
@@ -32,14 +32,20 @@
     {
       "id": ".",
       "path": ".",
-      "file_count": 16,
-      "fingerprint": "588a24a1b5710fe0ea53a6fc05b6e6f2eb6a7ad44651fa7cf41b16f72aaa79f8"
+      "file_count": 17,
+      "fingerprint": "162c137b2aaf6084ca7233c1a2c3857b3c30e9ae0d935d8608cdcceca27e6a22"
     },
     {
       "id": ".github",
       "path": ".github",
       "file_count": 2,
       "fingerprint": "9f919c839af5183a577e223abed64b21cdac858245e588ba79ef1ce68e902559"
+    },
+    {
+      "id": ".vscode",
+      "path": ".vscode",
+      "file_count": 1,
+      "fingerprint": "79ff5edd332a77315218bf86531e2fb260c5810ad4aed3b863b7eb8f8b522353"
     },
     {
       "id": "components",
@@ -51,7 +57,7 @@
       "id": "docs",
       "path": "docs",
       "file_count": 12,
-      "fingerprint": "c8da0da99bf53b1827d51c54e6ee7489e284c3313621a6c837863e6900c2ffff"
+      "fingerprint": "372a01b969c8347ce0b493b9a997bf993e0c514e67ea5646ef65ec6760e4fd9b"
     },
     {
       "id": "hooks",
