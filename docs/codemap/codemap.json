@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-09T21:10:10Z",
-  "generated_from_commit": "7d1f1b2d08cc5bc7672fd1210c8ccdf3b2fb1921",
+  "generated_at": "2026-08-15T09:31:34Z",
+  "generated_from_commit": "29c3397460eccb6d659db8bd0be185a47726cb79",
   "scope": [
     "."
   ],
@@ -178,7 +178,7 @@
       "type": "module",
       "boundary": "Repository",
       "entrypoints": [
-        "README.md:Iso Grid Thing"
+        "README.md:Product tour"
       ],
       "tests": [],
       "constraints": [
@@ -189,7 +189,7 @@
         "locations": [
           {
             "path": "README.md",
-            "symbol": "Iso Grid Thing"
+            "symbol": "Product tour"
           }
         ]
       }

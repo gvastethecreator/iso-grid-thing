@@ -1,6 +1,6 @@
 # Dependency Upgrade Notes
 
-Date: 2026-08-09
+Date: 2026-08-14
 
 All direct dependencies were checked with `pnpm outdated` and updated with pnpm 11.21.0. The lockfile passed pnpm's supply-chain policy check during resolution.
 
@@ -14,8 +14,8 @@ All direct dependencies were checked with `pnpm outdated` and updated with pnpm 
 | `vite`                             |           8.2.0 |           8.2.1 | Patch update within Vite 8. The production build and normalized GitHub Pages base path pass unchanged. See the [official Vite releases](https://github.com/vitejs/vite/releases).                                                                                                                               |
 | `pnpm`                             |         11.20.0 |         11.21.0 | Updates the pinned package manager and CI installer. Frozen installs and the supply-chain verification path remain enabled. See the [official pnpm releases](https://github.com/pnpm/pnpm/releases).                                                                                                            |
 | `@types/react`, `@types/react-dom` | transitive only | 19.2.18, 19.2.4 | Makes the React 19 type contract explicit after the dependency refresh removed accidental transitive access. Strict TypeScript now has a reproducible type surface. See [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).                                                                  |
-| `oxlint`                           |             new |          1.77.0 | Adds a fast correctness gate with warnings treated as failures. See the [official Oxlint CLI guide](https://oxc.rs/docs/guide/usage/linter/cli).                                                                                                                                                                |
-| `oxfmt`                            |             new |          0.62.0 | Adds one formatter for TypeScript, React, CSS, JSON, Markdown, and workflows. See the [official Oxfmt guide](https://oxc.rs/docs/guide/usage/formatter.html).                                                                                                                                                   |
+| `oxlint`                           |          1.77.0 |          1.78.0 | Keeps the warning-as-error lint gate on the current release. See the [official Oxlint CLI guide](https://oxc.rs/docs/guide/usage/linter/cli).                                                                                                                                                                   |
+| `oxfmt`                            |          0.62.0 |          0.63.0 | Keeps formatting for TypeScript, React, CSS, JSON, Markdown, and workflows on the current release. See the [official Oxfmt guide](https://oxc.rs/docs/guide/usage/formatter.html).                                                                                                                              |
 
 Runtime versions of React, React DOM, GSAP, Tailwind CSS, Playwright, the Vite React plugin, and Vitest were already current and did not require migration.
 

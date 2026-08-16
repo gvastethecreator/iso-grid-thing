@@ -1,7 +1,7 @@
 {
-  "current_commit": "7d1f1b2d08cc5bc7672fd1210c8ccdf3b2fb1921",
+  "source_commit": "29c3397460eccb6d659db8bd0be185a47726cb79",
   "working_tree_dirty": true,
-  "generated_at": "2026-08-09T21:10:10Z",
+  "generated_at": "2026-08-15T09:31:34Z",
   "scanned_scope": [
     "."
   ],
@@ -33,13 +33,13 @@
       "id": ".",
       "path": ".",
       "file_count": 17,
-      "fingerprint": "162c137b2aaf6084ca7233c1a2c3857b3c30e9ae0d935d8608cdcceca27e6a22"
+      "fingerprint": "4626a17f1a07429d647fe69bd904ad23651f48f30535d6ef2573e62ac2cdb4f1"
     },
     {
       "id": ".github",
       "path": ".github",
       "file_count": 2,
-      "fingerprint": "9f919c839af5183a577e223abed64b21cdac858245e588ba79ef1ce68e902559"
+      "fingerprint": "3a689abffa3c48a070fd2685cba66be02ebaf16652f69a42d28ea392e9139aa1"
     },
     {
       "id": ".vscode",
@@ -57,7 +57,7 @@
       "id": "docs",
       "path": "docs",
       "file_count": 12,
-      "fingerprint": "372a01b969c8347ce0b493b9a997bf993e0c514e67ea5646ef65ec6760e4fd9b"
+      "fingerprint": "f14ccf43b72fea7845f045dffd9bf7af69a375ed8316b2bdc37234079613fd0d"
     },
     {
       "id": "hooks",
